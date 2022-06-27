@@ -16,10 +16,13 @@ public class PasswordGenerator {
 
         // Panel with the things
         JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        JPanel length_panel = new JPanel();
         JLabel length_msg = new JLabel("Length of the password");
         JTextField length = new JTextField("16", 2);
-        panel.add(length_msg);
-        panel.add(length);
+        length_panel.add(length_msg);
+        length_panel.add(length);
+        panel.add(length_panel);
 
         // Components
         frame.getContentPane().add(BorderLayout.NORTH ,mb);
