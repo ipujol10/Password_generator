@@ -20,6 +20,7 @@ class Program implements ActionListener {
     JCheckBox numbers = new JCheckBox("Use numbers?", true);
 
     JButton generate = new JButton("Generate");
+    JTextField password = new JTextField(30);
 
     Program() {
         init();
@@ -55,7 +56,6 @@ class Program implements ActionListener {
         // Create
         JPanel result_panel = new JPanel();
         generate.addActionListener(this);
-        JTextField password = new JTextField(30);
         password.setEditable(false);
         result_panel.add(generate);
         result_panel.add(password);
@@ -68,6 +68,10 @@ class Program implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Button pressed");
+        password.setText("Works");
+    }
+
+    private void genration() {
+
     }
 }
