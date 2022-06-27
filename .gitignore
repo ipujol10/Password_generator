@@ -1,3 +1,7 @@
 # VS Code
 .idea
 .vscode
+
+# Other
+*.ico
+*.class
