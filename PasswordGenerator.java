@@ -24,7 +24,9 @@ public class PasswordGenerator {
         length_panel.add(length);
         panel.add(length_panel);
         JCheckBox special = new JCheckBox("Special characters allowed? (@#$%&-.,_:;()[]{}*)");
+        JCheckBox repeat = new JCheckBox("Allow repeated characters?");
         panel.add(special);
+        panel.add(repeat);
 
         // Components
         frame.getContentPane().add(BorderLayout.NORTH ,mb);
