@@ -2,6 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PasswordGenerator {
+    private static JTextField length = new JTextField("16", 2);
+
+    private static JCheckBox special = new JCheckBox("Special characters allowed? (@#$%&-.,_:;()[]{}*)", true);
+    private static JCheckBox repeat = new JCheckBox("Allow repeated characters?", true);
+    private static JCheckBox upper = new JCheckBox("Use upper case?", true);
+    private static JCheckBox lower = new JCheckBox("Use lower case?", true);
+    private static JCheckBox numbers = new JCheckBox("Use numbers?", true);
+
+    private static JButton generate = new JButton("Generate");
+
     public static void main(String[] args) {
         // Frame
         JFrame frame = new JFrame("Password generator"); // Make window
@@ -19,15 +29,9 @@ public class PasswordGenerator {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         JPanel length_panel = new JPanel();
         JLabel length_msg = new JLabel("Length of the password");
-        JTextField length = new JTextField("16", 2);
         length_panel.add(length_msg);
         length_panel.add(length);
         panel.add(length_panel);
-        JCheckBox special = new JCheckBox("Special characters allowed? (@#$%&-.,_:;()[]{}*)", true);
-        JCheckBox repeat = new JCheckBox("Allow repeated characters?", true);
-        JCheckBox upper = new JCheckBox("Use upper case?", true);
-        JCheckBox lower = new JCheckBox("Use lower case?", true);
-        JCheckBox numbers = new JCheckBox("Use numbers?", true);
         panel.add(special);
         panel.add(repeat);
         panel.add(upper);
@@ -36,7 +40,6 @@ public class PasswordGenerator {
 
         // Create
         JPanel result_panel = new JPanel();
-        JButton generate = new JButton("Generate");
         JTextField password = new JTextField(30);
         password.setEditable(false);
         result_panel.add(generate);
