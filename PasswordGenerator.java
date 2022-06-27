@@ -6,6 +6,10 @@ public class PasswordGenerator {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close the window
 
-        frame.setVisible(true);
+        frame.setSize(600, 400);
+
+        frame.setVisible(true); // show it
+
+        // frame.pack(); // allow to contain everything
     }
 }
