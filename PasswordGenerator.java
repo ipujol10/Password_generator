@@ -30,6 +30,8 @@ class Program implements ActionListener {
 
     private void init() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close the window
+        ImageIcon img = new ImageIcon("icon.png");
+        frame.setIconImage(img.getImage());
         frame.setSize(600, 250);
         frame.setVisible(true);
     }
