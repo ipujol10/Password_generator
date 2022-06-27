@@ -23,14 +23,16 @@ public class PasswordGenerator {
         length_panel.add(length_msg);
         length_panel.add(length);
         panel.add(length_panel);
-        JCheckBox special = new JCheckBox("Special characters allowed? (@#$%&-.,_:;()[]{}*)");
-        JCheckBox repeat = new JCheckBox("Allow repeated characters?");
-        JCheckBox upper = new JCheckBox("Use upper case?");
-        JCheckBox lower = new JCheckBox("Use lower case?");
+        JCheckBox special = new JCheckBox("Special characters allowed? (@#$%&-.,_:;()[]{}*)", true);
+        JCheckBox repeat = new JCheckBox("Allow repeated characters?", true);
+        JCheckBox upper = new JCheckBox("Use upper case?", true);
+        JCheckBox lower = new JCheckBox("Use lower case?", true);
+        JCheckBox numbers = new JCheckBox("Use numbers?", true);
         panel.add(special);
         panel.add(repeat);
         panel.add(upper);
         panel.add(lower);
+        panel.add(numbers);
 
         // Components
         frame.getContentPane().add(BorderLayout.NORTH ,mb);
