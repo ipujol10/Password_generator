@@ -23,6 +23,8 @@ public class PasswordGenerator {
         length_panel.add(length_msg);
         length_panel.add(length);
         panel.add(length_panel);
+        JCheckBox special = new JCheckBox("Special characters allowed? (@#$%&-.,_:;()[]{}*)");
+        panel.add(special);
 
         // Components
         frame.getContentPane().add(BorderLayout.NORTH ,mb);
