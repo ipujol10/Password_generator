@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
+import java.util.Random;
 
 public class PasswordGenerator {
     public static void main(String[] args) {
@@ -114,11 +115,10 @@ class Program implements ActionListener {
             possible_chars = temp;
         }
 
-        System.out.println(Arrays.toString(possible_chars));
-
         String pass = "";
+        Random rand = new Random();
         for (int i = 0; i < Integer.parseInt(length.getText()); i++) {
-
+            pass += possible_chars[rand.nextInt(possible_chars.length)];
         }
 
         return pass;
