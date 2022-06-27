@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
 
 public class PasswordGenerator {
     public static void main(String[] args) {
@@ -68,10 +69,58 @@ class Program implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        password.setText("Works");
+        password.setText(genration());
     }
 
-    private void genration() {
+    private String genration() {
+        String[] possible_chars = {};
+        if (special.isSelected()) {
+            String[] news = {"@", "#", "$", "%", "&", "-", ".", ",", "_", ":", ";", "(", ")", "[", "]", "{", "}", "*"};
+            int l1 = possible_chars.length;
+            int l2 = news.length;
+            String[] temp = new String[l1 + l2];
+            System.arraycopy(possible_chars, 0, temp, 0, l1);
+            System.arraycopy(news, 0, temp, l1, l2);
+            possible_chars = temp;
+        }
 
+        if (upper.isSelected()) {
+            String[] news = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+            int l1 = possible_chars.length;
+            int l2 = news.length;
+            String[] temp = new String[l1 + l2];
+            System.arraycopy(possible_chars, 0, temp, 0, l1);
+            System.arraycopy(news, 0, temp, l1, l2);
+            possible_chars = temp;
+        }
+
+        if (lower.isSelected()) {
+            String[] news = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+            int l1 = possible_chars.length;
+            int l2 = news.length;
+            String[] temp = new String[l1 + l2];
+            System.arraycopy(possible_chars, 0, temp, 0, l1);
+            System.arraycopy(news, 0, temp, l1, l2);
+            possible_chars = temp;
+        }
+
+        if (numbers.isSelected()) {
+            String[] news = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
+            int l1 = possible_chars.length;
+            int l2 = news.length;
+            String[] temp = new String[l1 + l2];
+            System.arraycopy(possible_chars, 0, temp, 0, l1);
+            System.arraycopy(news, 0, temp, l1, l2);
+            possible_chars = temp;
+        }
+
+        System.out.println(Arrays.toString(possible_chars));
+
+        String pass = "";
+        for (int i = 0; i < Integer.parseInt(length.getText()); i++) {
+
+        }
+
+        return pass;
     }
 }
