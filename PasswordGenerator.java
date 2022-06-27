@@ -1,24 +1,38 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class PasswordGenerator {
-    private static JTextField length = new JTextField("16", 2);
-
-    private static JCheckBox special = new JCheckBox("Special characters allowed? (@#$%&-.,_:;()[]{}*)", true);
-    private static JCheckBox repeat = new JCheckBox("Allow repeated characters?", true);
-    private static JCheckBox upper = new JCheckBox("Use upper case?", true);
-    private static JCheckBox lower = new JCheckBox("Use lower case?", true);
-    private static JCheckBox numbers = new JCheckBox("Use numbers?", true);
-
-    private static JButton generate = new JButton("Generate");
-
     public static void main(String[] args) {
-        // Frame
-        JFrame frame = new JFrame("Password generator"); // Make window
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close the window
-        // frame.pack(); // allow to contain everything
-        frame.setSize(600, 250);
+        new Program();
+    }
+}
 
+class Program implements ActionListener {
+    JFrame frame = new JFrame("Password generator"); // Make window
+
+    JTextField length = new JTextField("16", 2);
+
+    JCheckBox special = new JCheckBox("Special characters allowed? (@#$%&-.,_:;()[]{}*)", true);
+    JCheckBox repeat = new JCheckBox("Allow repeated characters?", true);
+    JCheckBox upper = new JCheckBox("Use upper case?", true);
+    JCheckBox lower = new JCheckBox("Use lower case?", true);
+    JCheckBox numbers = new JCheckBox("Use numbers?", true);
+
+    JButton generate = new JButton("Generate");
+
+    Program() {
+        init();
+        execution();
+    }
+
+    private void init() {
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close the window
+        frame.setSize(600, 250);
+        frame.setVisible(true);
+    }
+
+    private void execution() {
         // Menu bar
         JMenuBar mb = new JMenuBar();
         JMenu m1 = new JMenu("Help");
@@ -49,6 +63,10 @@ public class PasswordGenerator {
         frame.getContentPane().add(BorderLayout.NORTH ,mb);
         frame.getContentPane().add(BorderLayout.CENTER, panel);
         frame.getContentPane().add(BorderLayout.SOUTH, result_panel);
-        frame.setVisible(true); // show it
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 }
