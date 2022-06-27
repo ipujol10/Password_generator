@@ -54,6 +54,7 @@ class Program implements ActionListener {
 
         // Create
         JPanel result_panel = new JPanel();
+        generate.addActionListener(this);
         JTextField password = new JTextField(30);
         password.setEditable(false);
         result_panel.add(generate);
@@ -67,6 +68,6 @@ class Program implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        System.out.println("Button pressed");
     }
 }
