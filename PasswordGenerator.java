@@ -7,7 +7,7 @@ public class PasswordGenerator {
         JFrame frame = new JFrame("Password generator"); // Make window
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close the window
         // frame.pack(); // allow to contain everything
-        frame.setSize(400, 400);
+        frame.setSize(600, 250);
 
         // Menu bar
         JMenuBar mb = new JMenuBar();
@@ -34,9 +34,18 @@ public class PasswordGenerator {
         panel.add(lower);
         panel.add(numbers);
 
+        // Create
+        JPanel result_panel = new JPanel();
+        JButton generate = new JButton("Generate");
+        JTextField password = new JTextField(30);
+        password.setEditable(false);
+        result_panel.add(generate);
+        result_panel.add(password);
+
         // Components
         frame.getContentPane().add(BorderLayout.NORTH ,mb);
         frame.getContentPane().add(BorderLayout.CENTER, panel);
+        frame.getContentPane().add(BorderLayout.SOUTH, result_panel);
         frame.setVisible(true); // show it
     }
 }
