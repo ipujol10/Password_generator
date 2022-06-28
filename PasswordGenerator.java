@@ -67,10 +67,10 @@ class Program implements ActionListener {
 		length_panel.add(length);
 		panel.add(length_panel);
 		panel.add(special);
-		panel.add(repeat);
 		panel.add(upper);
 		panel.add(lower);
 		panel.add(numbers);
+		panel.add(repeat);
 
 		// Create
 		JPanel result_panel = new JPanel();
@@ -97,7 +97,15 @@ class Program implements ActionListener {
 	private String genration() {
 		int error = 0;
 		int pass_length = Integer.parseInt(length.getText());
-		if (!(special.isSelected() && upper.isSelected() && lower.isSelected() && numbers.isSelected())) error += 1;
+		if (!(special.isSelected() || upper.isSelected() || lower.isSelected() || numbers.isSelected())) error += 1;
+
+		if (error > 0) {
+			if (error == 1) {
+				JOptionPane.showMessageDialog(frame, "At least one of the types of charactes have to be selected.");
+			}
+
+			return "";
+		}
 
 		String[] possible_chars = {};
 		if (special.isSelected()) {
