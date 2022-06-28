@@ -105,6 +105,8 @@ class Program implements ActionListener {
 				JOptionPane.showMessageDialog(frame, "At least one of the types of charactes have to be selected.");
 			} else if (error == 10) {
 				JOptionPane.showMessageDialog(frame, "The length of the password must be between 1 and 30.");
+			} else if (error == 11) {
+				JOptionPane.showMessageDialog(frame, "At least one of the types of charactes have to be selected.\nThe length of the password must be between 1 and 30.");
 			}
 
 			return "";
