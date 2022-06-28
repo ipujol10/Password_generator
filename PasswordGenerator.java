@@ -42,7 +42,7 @@ class Program implements ActionListener {
 
 		length = new JTextField("16", 2);
 
-		special = new JCheckBox("Special characters allowed? (@#$%&-.,_:;()[]{}*)", true);
+		special = new JCheckBox("Special characters allowed? (@#$%&,etc)", true);
 		repeat = new JCheckBox("Allow repeated characters?", true);
 		upper = new JCheckBox("Use upper case?", true);
 		lower = new JCheckBox("Use lower case?", true);
@@ -90,14 +90,14 @@ class Program implements ActionListener {
 		if (e.getSource() == generate) {
 			password.setText(genration());
 		} else if (e.getSource() == m1) {
-			
+			JOptionPane.showMessageDialog(frame, "You need to select the length of the password and select at least one of the type of characters to use.");
 		}
 	}
 
 	private String genration() {
 		String[] possible_chars = {};
 		if (special.isSelected()) {
-			String[] news = { "@", "#", "$", "%", "&", "-", ".", ",", "_", ":", ";", "(", ")", "[", "]", "{", "}", "*" };
+			String[] news = { "@", "#", "$", "%", "&", "-", ".", ",", "_", ":", ";", "(", ")", "[", "]", "{", "}", "*", "+", "/" };
 			int l1 = possible_chars.length;
 			int l2 = news.length;
 			String[] temp = new String[l1 + l2];
