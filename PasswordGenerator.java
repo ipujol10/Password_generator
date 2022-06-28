@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Clipboard;
+import java.awt.Toolkit;
 
 public class PasswordGenerator {
 	public static void main(String[] args) {
@@ -24,6 +27,7 @@ class Program implements ActionListener {
 
 	JButton generate;
 	JTextField password;
+	JButton copy;
 
 	Program() {
 		init();
@@ -50,6 +54,7 @@ class Program implements ActionListener {
 
 		generate = new JButton("Generate");
 		password = new JTextField(30);
+		copy = new JButton("copy");
 	}
 
 	private void execution() {
@@ -76,8 +81,10 @@ class Program implements ActionListener {
 		JPanel result_panel = new JPanel();
 		generate.addActionListener(this);
 		password.setEditable(false);
+		copy.addActionListener(this);
 		result_panel.add(generate);
 		result_panel.add(password);
+		result_panel.add(copy);
 
 		// Components
 		frame.getContentPane().add(BorderLayout.NORTH, mb);
@@ -91,6 +98,10 @@ class Program implements ActionListener {
 			password.setText(genration());
 		} else if (e.getSource() == m1) {
 			JOptionPane.showMessageDialog(frame, "You need to select the length of the password and select at least one of the type of characters to use.");
+		} else if (e.getSource() == copy) {
+			StringSelection strSel = new StringSelection(password.getText());
+			Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
+			clip.setContents(strSel, null);
 		}
 	}
 
