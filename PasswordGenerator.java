@@ -95,6 +95,10 @@ class Program implements ActionListener {
 	}
 
 	private String genration() {
+		int error = 0;
+		int pass_length = Integer.parseInt(length.getText());
+		if (!(special.isSelected() && upper.isSelected() && lower.isSelected() && numbers.isSelected())) error += 1;
+
 		String[] possible_chars = {};
 		if (special.isSelected()) {
 			String[] news = { "@", "#", "$", "%", "&", "-", ".", ",", "_", ":", ";", "(", ")", "[", "]", "{", "}", "*", "+", "/" };
@@ -140,7 +144,7 @@ class Program implements ActionListener {
 
 		String pass = "";
 		Random rand = new Random();
-		for (int i = 0; i < Integer.parseInt(length.getText()); i++) {
+		for (int i = 0; i < pass_length; i++) {
 			pass += possible_chars[rand.nextInt(possible_chars.length)];
 		}
 
