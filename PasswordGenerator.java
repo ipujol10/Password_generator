@@ -62,7 +62,7 @@ class Program implements ActionListener {
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		JPanel length_panel = new JPanel();
-		JLabel length_msg = new JLabel("Length of the password");
+		JLabel length_msg = new JLabel("Length of the password [1-30]:");
 		length_panel.add(length_msg);
 		length_panel.add(length);
 		panel.add(length_panel);
@@ -98,10 +98,13 @@ class Program implements ActionListener {
 		int error = 0;
 		int pass_length = Integer.parseInt(length.getText());
 		if (!(special.isSelected() || upper.isSelected() || lower.isSelected() || numbers.isSelected())) error += 1;
+		if (!(0 < pass_length && pass_length < 31)) error += 10;
 
 		if (error > 0) {
 			if (error == 1) {
 				JOptionPane.showMessageDialog(frame, "At least one of the types of charactes have to be selected.");
+			} else if (error == 10) {
+				JOptionPane.showMessageDialog(frame, "The length of the password must be between 1 and 30.");
 			}
 
 			return "";
