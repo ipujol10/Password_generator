@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Clipboard;
@@ -123,53 +125,40 @@ class Program implements ActionListener {
 			return "";
 		}
 
-		String[] possible_chars = {};
+		// String[][] possible_chars = {};
+		ArrayList<ArrayList<String>> possible_chars = new ArrayList<ArrayList<String>>();
 		if (special.isSelected()) {
 			String[] news = { "@", "#", "$", "%", "&", "-", ".", ",", "_", ":", ";", "(", ")", "[", "]", "{", "}", "*", "+", "/" };
-			int l1 = possible_chars.length;
-			int l2 = news.length;
-			String[] temp = new String[l1 + l2];
-			System.arraycopy(possible_chars, 0, temp, 0, l1);
-			System.arraycopy(news, 0, temp, l1, l2);
-			possible_chars = temp;
+			ArrayList<String> new_list = new ArrayList<>(Arrays.asList(news));
+			possible_chars.add(new_list);
 		}
 
 		if (upper.isSelected()) {
 			String[] news = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
 					"T", "U", "V", "W", "X", "Y", "Z" };
-			int l1 = possible_chars.length;
-			int l2 = news.length;
-			String[] temp = new String[l1 + l2];
-			System.arraycopy(possible_chars, 0, temp, 0, l1);
-			System.arraycopy(news, 0, temp, l1, l2);
-			possible_chars = temp;
+			ArrayList<String> new_list = new ArrayList<>(Arrays.asList(news));
+			possible_chars.add(new_list);
 		}
 
 		if (lower.isSelected()) {
 			String[] news = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s",
 					"t", "u", "v", "w", "x", "y", "z" };
-			int l1 = possible_chars.length;
-			int l2 = news.length;
-			String[] temp = new String[l1 + l2];
-			System.arraycopy(possible_chars, 0, temp, 0, l1);
-			System.arraycopy(news, 0, temp, l1, l2);
-			possible_chars = temp;
+			ArrayList<String> new_list = new ArrayList<>(Arrays.asList(news));
+			possible_chars.add(new_list);
 		}
 
 		if (numbers.isSelected()) {
 			String[] news = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
-			int l1 = possible_chars.length;
-			int l2 = news.length;
-			String[] temp = new String[l1 + l2];
-			System.arraycopy(possible_chars, 0, temp, 0, l1);
-			System.arraycopy(news, 0, temp, l1, l2);
-			possible_chars = temp;
+			ArrayList<String> new_list = new ArrayList<>(Arrays.asList(news));
+			possible_chars.add(new_list);
 		}
 
 		String pass = "";
 		Random rand = new Random();
 		for (int i = 0; i < pass_length; i++) {
-			pass += possible_chars[rand.nextInt(possible_chars.length)];
+			int type = rand.nextInt(possible_chars.size());
+			int character = rand.nextInt(possible_chars.get(type).size());
+			pass += possible_chars.get(type).get(character);
 		}
 
 		return pass;
